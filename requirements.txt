@@ -1,0 +1,3 @@
+loguru==0.6.0
+PyAutoGUI==0.9.53
+selenium==3.141.0
