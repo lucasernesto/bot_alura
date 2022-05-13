@@ -31,26 +31,19 @@ class AluraBot:
         password.send_keys(Keys.RETURN)
 
         logger.opt(colors=True).info("Login realizado\n")
-        time.sleep(4)
+        time.sleep(2)
 
     def watch_classes(self):
         driver = self.driver
         time.sleep(2)
         pyautogui.keyDown('space')
-        time.sleep(5)
         try:
             a = driver.find_elements_by_xpath("//span[contains(@class, 'vjs-duration-display')]")[0].get_attribute("innerHTML")
-            a = a.replace(":", ".")
+            to_sleep=7
         except IndexError:
-            a=0
+            to_sleep=0
 
-        to_sleep = float(a)*60
-        to_sleep = to_sleep/3
-        to_sleep = int(to_sleep)
-
-        # to_sleep = 0
-
-        time.sleep(to_sleep + 6) 
+        time.sleep(to_sleep)
 
         driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")        
 
